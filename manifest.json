@@ -1,0 +1,18 @@
+
+{
+  "name": "Neighbor-Share - כלכלה שיתופית",
+  "short_name": "NeighborShare",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#059669",
+  "description": "השכרת והשאלת חפצים בין שכנים בישראל",
+  "icons": [
+    {
+      "src": "https://img.icons8.com/fluency/512/handshake.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

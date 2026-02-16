@@ -1,0 +1,8 @@
+{
+  "name": "Neighbor-Share",
+  "description": "A local collaborative economy platform for borrowing and renting tools and items within your neighborhood. Features trust ratings and built-in insurance.",
+  "requestFramePermissions": [
+    "geolocation",
+    "camera"
+  ]
+}

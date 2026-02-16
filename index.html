@@ -1,11 +1,103 @@
+
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <title>האתר של זוהר</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#059669">
+  
+  <!-- SEO & Social Sharing (OpenGraph) -->
+  <title>Neighbor-Share | השכונה משתפת וצומחת</title>
+  <meta name="description" content="הדרך הכי בטוחה להשאיל חפצים מהשכנים. חוסכים כסף, בונים קהילה.">
+  <meta property="og:title" content="Neighbor-Share - למה לקנות כשיש לשכן?">
+  <meta property="og:description" content="הצטרפו לכלכלה השיתופית המקומית. השאלה והשכרה בטוחה של כלים וחפצים.">
+  <meta property="og:image" content="https://img.icons8.com/fluency/512/handshake.png">
+  <meta property="og:type" content="website">
+
+  <!-- Mobile App Capabilities -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="NeighborShare">
+  <link rel="apple-touch-icon" href="https://img.icons8.com/fluency/512/handshake.png">
+  <link rel="manifest" href="manifest.json">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #059669;
+      --primary-dark: #065f46;
+    }
+    body {
+      font-family: 'Rubik', sans-serif;
+      background-color: #ffffff;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      touch-action: manipulation;
+    }
+    #root {
+      height: 100%;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      display: flex;
+      flex-direction: column;
+    }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+    }
+
+    .modal-enter { animation: slideUp 0.5s cubic-bezier(0.32, 0.72, 0, 1); }
+    @keyframes slideUp {
+      from { transform: translateY(100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .toast-enter { animation: toastIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    @keyframes toastIn {
+      from { transform: translateY(100%) translateX(-50%); opacity: 0; }
+      to { transform: translateY(-30px) translateX(-50%); opacity: 1; }
+    }
+
+    .safe-top { padding-top: env(safe-area-inset-top); }
+    .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
+    
+    input, select, textarea { font-size: 16px !important; } /* Prevents iOS zoom on focus */
+  </style>
+  <script type="importmap">
+  {
+    "imports": {
+      "react": "https://esm.sh/react@^19.2.4",
+      "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+      "react/": "https://esm.sh/react@^19.2.4/",
+      "@google/genai": "https://esm.sh/@google/genai@^1.41.0",
+      "lucide-react": "https://esm.sh/lucide-react@^0.564.0"
+    }
+  }
+  </script>
+<link rel="stylesheet" href="/index.css">
 </head>
 <body>
-    <h1>ברוכים הבאים לאתר הראשון שלי!</h1>
-    <p>האתר הזה נבנה ומתארח ב-GitHub.</p>
+  <div id="root"></div>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').catch(() => {});
+      });
+    }
+  </script>
+<script type="module" src="/index.tsx"></script>
 </body>
 </html>
